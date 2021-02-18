@@ -2,17 +2,6 @@
 
 <html>
 <head>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158756006-1"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-158756006-1');
-	</script>
-
 	<title>HCI Project Portfolio</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +19,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-158756006-1', 'auto');
+		ga('create', 'UA-158756006-2', 'auto');
 		ga('send', 'pageview');
 	</script>
 	<!-- End Google Analytics -->
@@ -44,18 +33,32 @@
 		</div>
 
 		<h4>Projects</h4>
-		{{#each projects}}
-			<div class="project" id="{{id}}">
-				<div class="thumbnail">
-					<a href="/project/{{id}}">
-						<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
-						<h4>{{title}}</h4>
-					</a>
-					<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
-					<div class="details"></div>
+		{{#if viewAlt}}
+			{{#each projects}}
+				<div class="project" id="{{id}}">
+					<div class="thumbnail">
+						<a href="/project/{{id}}">
+							<h4>{{title}}</h4>
+						</a>
+						Min! <button class="likeBtn">Like</button>
+						<div class="details"></div>
+					</div>
 				</div>
-			</div>
-		{{/each}}
+			{{/each}}
+		{{else}}
+			{{#each projects}}
+				<div class="project" id="{{id}}">
+					<div class="thumbnail">
+						<a href="/project/{{id}}">
+							<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
+							<h4>{{title}}</h4>
+						</a>
+						<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
+						<div class="details"></div>
+					</div>
+				</div>
+			{{/each}}
+		{{/if}}
 
 
 </body>
